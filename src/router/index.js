@@ -28,6 +28,7 @@ import PayMethodManagementAdmin from '@/views/admin/Settings/PayMethodManagement
 import TransacctionStateManagementAdmin from '@/views/admin/Settings/TransacctionStateManagementAdmin.vue';
 import MaintenanceManagementView from '@/views/admin/Truck/MaintenanceManagementView.vue';
 import TruckDocuments from '@/views/admin/Truck/TruckDocuments.vue';
+import UsersView from '@/views/admin/User/UsersView.vue';
 import LoginView from '@/views/auth/loginView.vue';
 import ManagamenFinancial from '@/views/driver/ManagamenFinancial.vue';
 import PaymentPendingView from '@/views/driver/PaymentPendingView.vue';
@@ -130,7 +131,7 @@ const router = createRouter({
                 {
                     path: '/usuarios',
                     name: 'usuarios',
-                    component: () => import('@/views/admin/User/UsersView.vue'),
+                    component: UsersView,
                 },
                 {
                     path: '/camiones',

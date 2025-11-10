@@ -19,13 +19,23 @@
         <Transition name="sidebar">
             <aside
                 v-show="sidebarOpen || !isMobile"
-                class="fixed inset-y-0 left-0 z-50 flex flex-col transition-all duration-300 ease-out border-r shadow-2xl lg:relative bg-white/98 dark:bg-slate-900/98 backdrop-blur-2xl border-slate-200/80 dark:border-slate-700/80"
-                :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'"
+                class="fixed inset-y-0 left-0 z-50 flex flex-col transition-all duration-300 ease-out border-r shadow-2xl lg:relative backdrop-blur-2xl border-slate-200/80 dark:border-slate-700/80"
+                :class="[
+                    sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
+                    isMobile
+                        ? 'bg-white/75 dark:bg-slate-900/75'
+                        : 'bg-white/98 dark:bg-slate-900/98',
+                ]"
                 style="width: 20rem"
             >
                 <!-- Logo Section with animation -->
                 <div
-                    class="relative flex-shrink-0 h-20 px-6 overflow-hidden shadow-xl group bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 sm:h-18 lg:h-16"
+                    class="relative flex-shrink-0 h-20 px-6 overflow-hidden shadow-xl group sm:h-18 lg:h-16"
+                    :class="
+                        isMobile
+                            ? 'bg-gradient-to-r from-amber-500/90 via-orange-500/90 to-red-500/90 backdrop-blur-xl'
+                            : 'bg-gradient-to-r from-amber-500 via-orange-500 to-red-500'
+                    "
                 >
                     <!-- Animated background effect -->
                     <div
@@ -141,10 +151,20 @@
 
                 <!-- Enhanced User Profile Section -->
                 <div
-                    class="flex-shrink-0 p-4 border-t border-slate-200/80 dark:border-slate-700/80 bg-gradient-to-b from-transparent to-slate-50/50 dark:to-slate-900/50 sm:p-5"
+                    class="flex-shrink-0 p-4 border-t sm:p-5"
+                    :class="
+                        isMobile
+                            ? 'border-slate-200/50 dark:border-slate-700/50 bg-gradient-to-b from-transparent to-slate-50/30 dark:to-slate-900/30 backdrop-blur-xl'
+                            : 'border-slate-200/80 dark:border-slate-700/80 bg-gradient-to-b from-transparent to-slate-50/50 dark:to-slate-900/50'
+                    "
                 >
                     <div
-                        class="relative p-4 overflow-hidden border shadow-xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800/95 dark:to-slate-700/95 backdrop-blur-xl rounded-2xl border-slate-200/80 dark:border-slate-600/80 sm:p-5 group"
+                        class="relative p-4 overflow-hidden border shadow-xl backdrop-blur-xl rounded-2xl sm:p-5 group"
+                        :class="
+                            isMobile
+                                ? 'bg-gradient-to-br from-white/80 to-slate-50/80 dark:from-slate-800/85 dark:to-slate-700/85 border-slate-200/60 dark:border-slate-600/60'
+                                : 'bg-gradient-to-br from-white to-slate-50 dark:from-slate-800/95 dark:to-slate-700/95 border-slate-200/80 dark:border-slate-600/80'
+                        "
                     >
                         <!-- Animated gradient background -->
                         <div
@@ -327,23 +347,7 @@
                             <SearchIcon class="w-6 h-6 sm:w-5 sm:h-5" />
                         </button>
 
-                        <!-- Notifications button -->
-                        <!--   <div class="relative">
-                            <button
-                                @click="toggleNotifications"
-                                class="relative transition-all duration-200 shadow-sm text-slate-600 rounded-xl hover:text-amber-600 hover:bg-amber-50 dark:text-slate-300 dark:hover:text-amber-400 dark:hover:bg-amber-500/10 hover:scale-110 active:scale-95 hover:shadow-md p-3 sm:p-2.5 border border-transparent hover:border-amber-200/50 dark:hover:border-amber-500/20"
-                            >
-                                <BellIcon class="w-6 h-6 sm:w-5 sm:h-5" />
-                                <span
-                                    v-if="unreadNotifications > 0"
-                                    class="absolute flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full -top-1 -right-1 animate-pulse ring-2 ring-white dark:ring-slate-900"
-                                >
-                                    {{ unreadNotifications }}
-                                </span>
-                            </button>
-                        </div> -->
-
-                        <!-- Enhanced language selector - SOLUCIÓN A PALOMITAS DUPLICADAS -->
+                        <!-- Enhanced language selector -->
                         <div class="relative" ref="languageDropdownRef">
                             <button
                                 @click="toggleLanguageDropdown"
@@ -383,7 +387,6 @@
                                                 >
                                                 <span>{{ lang.name }}</span>
                                             </div>
-                                            <!-- SOLUCIÓN: Palomita solo aparece si está seleccionado -->
                                             <div class="flex items-center justify-center w-5 h-5">
                                                 <Transition name="check-fade">
                                                     <CheckIcon

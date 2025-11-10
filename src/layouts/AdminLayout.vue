@@ -813,17 +813,3 @@ input:focus-visible {
     }
 }
 </style>
-import { useAlert } from '@/composables/useAlert'; import { isDarkMode } from
-'@/composables/useDarkMode'; import { businessesActives } from '@/services/BusinessService'; import
-{ categoriesActives } from '@/services/CategoryService'; import { indexOperatingBoxes } from
-'@/services/OperatingBoxService'; import { paymentMethodsActives } from
-'@/services/PaymentMethodService'; import { changeStateFinancialTransaction,
-deleteFinancialTransaction, downloadTransactionFinancialTemplate, exportTransactionFinancialExcel,
-importTransactionFinancial, indexTransactionFinancialAll, showFinancialTransaction,
-updateFinancialTransaction, } from '@/services/TransactionFinancialService'; import {
-transactionStatesActives } from '@/services/TransactionStateService'; import { usersActives } from
-'@/services/UserService'; import { indexVehicles } from '@/services/VehicleService'; import {
-AlertTriangleIcon, BarChart3Icon, BriefcaseIcon, CalendarIcon, CheckCircle2Icon, DollarSignIcon,
-DownloadIcon, EditIcon, EyeIcon, FileIcon, PlusIcon, RefreshCwIcon, SearchIcon, TrashIcon,
-UploadIcon, UserIcon, XIcon, } from 'lucide-vue-next'; import { computed, onMounted, ref, watch }
-from 'vue';

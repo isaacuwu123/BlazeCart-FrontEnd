@@ -213,233 +213,6 @@
                     </div>
                 </div>
 
-                <!-- Enhanced Financial Panel -->
-                <div
-                    class="mb-8 overflow-hidden border shadow-2xl bg-white/95 backdrop-blur-xl rounded-3xl border-white/50 dark:bg-slate-800/95 dark:border-slate-700/50"
-                >
-                    <div class="p-8 border-b border-slate-200/50 dark:border-slate-700/50">
-                        <div
-                            class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center"
-                        >
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="p-3 shadow-xl bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl"
-                                >
-                                    <DollarSignIcon
-                                        class="w-6 h-6 text-white"
-                                        :stroke-width="2.5"
-                                    />
-                                </div>
-                                <h3 class="text-xl font-black text-slate-900 dark:text-white">
-                                    Resumen Financiero
-                                </h3>
-                            </div>
-                            <div class="text-left sm:text-right">
-                                <p class="text-sm font-medium text-slate-500 dark:text-slate-400">
-                                    Mes actual
-                                </p>
-                                <p class="text-lg font-bold text-slate-900 dark:text-white">
-                                    {{
-                                        new Date().toLocaleString('default', {
-                                            month: 'long',
-                                            year: 'numeric',
-                                        })
-                                    }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-8">
-                        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-                            <div
-                                class="relative p-6 overflow-hidden transition-all duration-300 border shadow-lg bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl border-green-200/50 dark:border-green-700/30 group hover:shadow-xl"
-                            >
-                                <div
-                                    class="absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-green-100/50 to-emerald-100/50 dark:from-green-800/20 dark:to-emerald-800/20 group-hover:opacity-100"
-                                ></div>
-                                <div class="relative">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <p
-                                            class="text-sm font-bold text-slate-600 dark:text-slate-400"
-                                        >
-                                            Ingresos
-                                        </p>
-                                        <ArrowUpIcon class="w-5 h-5 text-green-500" />
-                                    </div>
-                                    <p class="text-3xl font-black text-slate-900 dark:text-white">
-                                        ${{
-                                            (financialData || fallbackData)
-                                                ?.total_ingresos_brutos || '0'
-                                        }}
-                                    </p>
-                                    <div class="flex items-center mt-3">
-                                        <TrendingUpIcon class="w-4 h-4 text-green-500" />
-                                        <span
-                                            class="ml-1 text-xs font-semibold text-green-600 dark:text-green-400"
-                                            >+12% vs mes anterior</span
-                                        >
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                class="relative p-6 overflow-hidden transition-all duration-300 border shadow-lg bg-gradient-to-r from-red-50 to-rose-50 dark:from-red-900/20 dark:to-rose-900/20 rounded-2xl border-red-200/50 dark:border-red-700/30 group hover:shadow-xl"
-                            >
-                                <div
-                                    class="absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-red-100/50 to-rose-100/50 dark:from-red-800/20 dark:to-rose-800/20 group-hover:opacity-100"
-                                ></div>
-                                <div class="relative">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <p
-                                            class="text-sm font-bold text-slate-600 dark:text-slate-400"
-                                        >
-                                            Egresos
-                                        </p>
-                                        <ArrowDownIcon class="w-5 h-5 text-red-500" />
-                                    </div>
-                                    <p class="text-3xl font-black text-slate-900 dark:text-white">
-                                        ${{
-                                            (financialData || fallbackData)?.total_egresos_brutos ||
-                                            '0'
-                                        }}
-                                    </p>
-                                    <div class="flex items-center mt-3">
-                                        <TrendingDownIcon class="w-4 h-4 text-red-500" />
-                                        <span
-                                            class="ml-1 text-xs font-semibold text-red-600 dark:text-red-400"
-                                            >+5% vs mes anterior</span
-                                        >
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                class="relative p-6 overflow-hidden transition-all duration-300 border shadow-lg bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl border-blue-200/50 dark:border-blue-700/30 group hover:shadow-xl"
-                            >
-                                <div
-                                    class="absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-blue-100/50 to-indigo-100/50 dark:from-blue-800/20 dark:to-indigo-800/20 group-hover:opacity-100"
-                                ></div>
-                                <div class="relative">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <p
-                                            class="text-sm font-bold text-slate-600 dark:text-slate-400"
-                                        >
-                                            Margen
-                                        </p>
-                                        <WalletIcon class="w-5 h-5 text-blue-500" />
-                                    </div>
-                                    <p class="text-3xl font-black text-slate-900 dark:text-white">
-                                        ${{ (financialData || fallbackData)?.margen_bruto || '0' }}
-                                    </p>
-                                    <div class="flex items-center mt-3">
-                                        <TrendingUpIcon class="w-4 h-4 text-blue-500" />
-                                        <span
-                                            class="ml-1 text-xs font-semibold text-blue-600 dark:text-blue-400"
-                                            >+18% vs mes anterior</span
-                                        >
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Enhanced Charts Section -->
-                <div class="grid grid-cols-1 gap-8 mb-8 lg:grid-cols-2">
-                    <!-- Status Distribution Chart -->
-                    <div
-                        class="overflow-hidden border shadow-2xl bg-white/95 backdrop-blur-xl rounded-3xl border-white/50 dark:bg-slate-800/95 dark:border-slate-700/50"
-                    >
-                        <div class="p-8 border-b border-slate-200/50 dark:border-slate-700/50">
-                            <div
-                                class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center"
-                            >
-                                <div class="flex items-center gap-4">
-                                    <div
-                                        class="p-3 shadow-xl bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl"
-                                    >
-                                        <PieChartIcon
-                                            class="w-6 h-6 text-white"
-                                            :stroke-width="2.5"
-                                        />
-                                    </div>
-                                    <h3 class="text-xl font-black text-slate-900 dark:text-white">
-                                        Distribución de Estados
-                                    </h3>
-                                </div>
-                                <div class="relative">
-                                    <select
-                                        class="px-4 py-2 pr-10 text-sm font-medium leading-tight border appearance-none cursor-pointer rounded-xl text-slate-700 bg-white/80 border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent dark:bg-slate-700/80 dark:text-white dark:border-slate-600"
-                                    >
-                                        <option>Este mes</option>
-                                        <option>Mes pasado</option>
-                                        <option>Últimos 3 meses</option>
-                                    </select>
-                                    <ChevronDownIcon
-                                        class="absolute w-5 h-5 transition-transform -translate-y-1/2 pointer-events-none right-2 top-1/2 text-slate-400"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <div class="h-64">
-                                <Doughnut
-                                    :data="statusChart.data"
-                                    :options="statusChart.options"
-                                    v-if="financialData || fallbackData"
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Income by Category Chart -->
-                    <div
-                        class="overflow-hidden border shadow-2xl bg-white/95 backdrop-blur-xl rounded-3xl border-white/50 dark:bg-slate-800/95 dark:border-slate-700/50"
-                    >
-                        <div class="p-8 border-b border-slate-200/50 dark:border-slate-700/50">
-                            <div
-                                class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center"
-                            >
-                                <div class="flex items-center gap-4">
-                                    <div
-                                        class="p-3 shadow-xl bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl"
-                                    >
-                                        <BarChart3Icon
-                                            class="w-6 h-6 text-white"
-                                            :stroke-width="2.5"
-                                        />
-                                    </div>
-                                    <h3 class="text-xl font-black text-slate-900 dark:text-white">
-                                        Egresos por Categoría
-                                    </h3>
-                                </div>
-                                <div class="relative">
-                                    <select
-                                        class="px-4 py-2 pr-10 text-sm font-medium leading-tight border appearance-none cursor-pointer rounded-xl text-slate-700 bg-white/80 border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:bg-slate-700/80 dark:text-white dark:border-slate-600"
-                                    >
-                                        <option>Este mes</option>
-                                        <option>Mes pasado</option>
-                                        <option>Últimos 3 meses</option>
-                                    </select>
-                                    <ChevronDownIcon
-                                        class="absolute w-5 h-5 transition-transform -translate-y-1/2 pointer-events-none right-2 top-1/2 text-slate-400"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <div class="h-64">
-                                <Bar
-                                    :data="incomeChart.data"
-                                    :options="incomeChart.options"
-                                    v-if="financialData || fallbackData"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Enhanced Quick Actions -->
                 <div
                     class="mb-8 overflow-hidden border shadow-2xl bg-white/95 backdrop-blur-xl rounded-3xl border-white/50 dark:bg-slate-800/95 dark:border-slate-700/50"
@@ -560,12 +333,6 @@
                                         <RouteIcon class="w-4 h-4" />
                                         {{ route.miles }} mi
                                     </span>
-                                    <span
-                                        class="flex items-center gap-1.5 px-4 py-2 text-sm font-bold border rounded-full text-green-700 bg-green-100/80 backdrop-blur-sm border-green-200/50 dark:text-green-300 dark:bg-green-900/50 dark:border-green-700/50"
-                                    >
-                                        <DollarSignIcon class="w-4 h-4" />
-                                        ${{ route.earnings }}
-                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -590,30 +357,23 @@ import {
 } from 'chart.js';
 import {
     ActivityIcon,
-    ArrowDownIcon,
     ArrowRightIcon,
-    ArrowUpIcon,
     BarChart3Icon,
     CheckCircle2Icon,
     CheckIcon,
-    ChevronDownIcon,
     ClockIcon,
-    DollarSignIcon,
     FileTextIcon,
     MapIcon,
     MapPinIcon,
-    PieChartIcon,
     RouteIcon,
     SettingsIcon,
     SparklesIcon,
     TrendingDownIcon,
     TrendingUpIcon,
-    WalletIcon,
     XCircleIcon,
     ZapIcon,
 } from 'lucide-vue-next';
 import { computed, onMounted, ref } from 'vue';
-import { Bar, Doughnut } from 'vue-chartjs';
 import { useRouter } from 'vue-router';
 
 // Register ChartJS components
