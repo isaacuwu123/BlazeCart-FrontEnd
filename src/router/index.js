@@ -8,6 +8,7 @@ import NegocioConMayorEgreso from '@/views/admin/Dashboard/NegocioConMayorEgreso
 import RendicionDeCajasOperativas from '@/views/admin/Dashboard/RendicionDeCajasOperativas.vue';
 import TodosLosNegociosEstadosDeResultados from '@/views/admin/Dashboard/TodosLosNegociosEstadosDeResultados.vue';
 import VehiculosDelNegocio from '@/views/admin/Dashboard/VehiculosDelNegocio.vue';
+import DriversView from '@/views/admin/Driver/DriversView.vue';
 import CategoryFinancialTransaccion from '@/views/admin/Finanzas/CategoryFinancialTransaccion.vue';
 import FormFinancialAdmin from '@/views/admin/Finanzas/FormFinancialAdmin.vue';
 import MovementsBox from '@/views/admin/Finanzas/MovementsBox.vue';
@@ -247,6 +248,10 @@ const router = createRouter({
                     path: '/pagos-pendientes',
                     name: 'pagos-pendientes',
                     component: PaymentPending,
+                },
+                {
+                    path: '/conductores2',
+                    component: DriversView,
                 },
             ],
         },
